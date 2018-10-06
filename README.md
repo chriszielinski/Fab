@@ -93,18 +93,13 @@ Try Me
 Includes a Playground and Demo.app.
 
 
-Who to blame
+// ToDo:
 ----
-
-- 
-
-----
-
-### // ToDo:
 
 - [ ] Tests.
 
-### // CouldDo:
+// CouldDo:
+----
 
 - [ ] Use CALayer.
 - [ ] Internal refactoring.
