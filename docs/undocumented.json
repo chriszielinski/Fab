@@ -1,0 +1,229 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 31,
+      "symbol": "FabAction",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 33,
+      "symbol": "Fab",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 130,
+      "symbol": "Fab.itemOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 144,
+      "symbol": "Fab.init(attachedTo:kind:items:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 218,
+      "symbol": "Fab.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 223,
+      "symbol": "Fab.setTitle(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 229,
+      "symbol": "Fab.setImage(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
+      "line": 276,
+      "symbol": "Fab.installVisualEffectViewConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/FabItem.swift",
+      "line": 30,
+      "symbol": "FabItemAction",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/FabItem.swift",
+      "line": 32,
+      "symbol": "FabItem",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/FabItem.swift",
+      "line": 66,
+      "symbol": "FabItem.isDisabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 33,
+      "symbol": "CircularButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 35,
+      "symbol": "CircularButton.diameter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 36,
+      "symbol": "CircularButton.allowsMouseDownInBounds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 37,
+      "symbol": "CircularButton.ignoresMouseEvents",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 44,
+      "symbol": "CircularButton.cornerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 49,
+      "symbol": "CircularButton.init(diameter:backgroundColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 60,
+      "symbol": "CircularButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 64,
+      "symbol": "CircularButton.circularButtonContains(point:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 72,
+      "symbol": "CircularButton.hitTest(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 82,
+      "symbol": "CircularButton.updateTrackingAreas()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 86,
+      "symbol": "CircularButton.mouseEntered(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/CircularButton.swift",
+      "line": 94,
+      "symbol": "CircularButton.mouseExited(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/ColoredButton.swift",
+      "line": 33,
+      "symbol": "ColoredButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/ColoredButton.swift",
+      "line": 34,
+      "symbol": "ColoredButton.backgroundColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/ColoredButton.swift",
+      "line": 36,
+      "symbol": "ColoredButton.wantsUpdateLayer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/ColoredButton.swift",
+      "line": 40,
+      "symbol": "ColoredButton.init(frame:backgroundColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/ColoredButton.swift",
+      "line": 47,
+      "symbol": "ColoredButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/ColoredButton.swift",
+      "line": 51,
+      "symbol": "ColoredButton.updateLayer()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/VisualEffectButton.swift",
+      "line": 33,
+      "symbol": "VisualEffectButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/VisualEffectButton.swift",
+      "line": 37,
+      "symbol": "VisualEffectButton.init(diameter:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Views/VisualEffectButton.swift",
+      "line": 60,
+      "symbol": "VisualEffectButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/chriszielinski/apps/Fab"
+}
