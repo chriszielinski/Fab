@@ -1,43 +1,39 @@
 Fab. 🛍️
 ----
-
-<!--[![Platform](https://img.shields.io/cocoapods/p/Fab.svg?style=flat)](http://cocoadocs.org/docsets/Fab) 
-[![Pod Version](https://img.shields.io/cocoapods/v/Fab.svg?style=flat)](http://cocoadocs.org/docsets/Fab/) 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift) 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/piemonte/Player/blob/master/LICENSE)
-
-![Action Button](./readme-assets/ActionButton.gif)
--->
-
-<div style="text-align:center">
+ 
+<p align="center">
 	<a href="http://cocoadocs.org/docsets/Fab" style="text-decoration:none">
-		<img src ="https://img.shields.io/cocoapods/p/Fab.svg?style=flat"/>
+		<img alt="Platform" src ="https://img.shields.io/cocoapods/p/Fab.svg?style=flat"/>
 	</a>
-<img src ="https://img.shields.io/cocoapods/v/Fab.svg?style=flat"/>
-<img src ="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/>
-<img src ="https://img.shields.io/badge/language-swift%204.2-brightgreen.svg"/>
-<img src ="https://img.shields.io/badge/license-MIT-blue.svg"/>
-
+	<a href="http://cocoadocs.org/docsets/Fab/" style="text-decoration:none">
+		<img alt="Pod Version" src ="https://img.shields.io/cocoapods/v/Fab.svg?style=flat"/>
+	</a>
+	<a href="https://github.com/Carthage/Carthage" style="text-decoration:none">
+		<img alt="Carthage compatible" src ="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/>
+	</a>
+	<a href="https://developer.apple.com/swift" style="text-decoration:none">
+		<img alt="Swift Version" src ="https://img.shields.io/badge/language-swift%204.2-brightgreen.svg"/>
+	</a>
+	<a href="https://github.com/chriszielinski/Fab/blob/master/LICENSE" style="text-decoration:none">
+		<img alt="GitHub license" src ="https://img.shields.io/badge/license-MIT-blue.svg"/>
+	</a>
 	<br>
+	<img src ="https://raw.githubusercontent.com/chriszielinski/Fab/master/readme-assets/Fab.gif"/>
+	<br>
+	<br>
+	<code>Fab</code> is a <b>F</b>loating <b>A</b>ction <b>B</b>utton inspired by Material Design, and written in Swift.
+	<br>
+	Based on Lourenço Marinho's <a href="https://github.com/lourenco-marinho/ActionButton"><code>ActionButton</code></a> for UIKit.
+	<br>
+</p>
 
-	<img src ="./readme-assets/Fab.gif"/>
-</div>
-
-<p align="center"><code>Fab</code> is a <b>F</b>loating <b>A</b>ction <b>B</b>utton inspired by Material Design, and written in Swift.
-
-<br>
-
-Based on Lourenço Marinho's <a href="https://github.com/lourenco-marinho/ActionButton"><code>ActionButton</code></a> for UIKit.
-<br></p>
-
---
+----
 
 ### Features
 
-- [x] Dark Mode
-	
-	![Dark Mode](./readme-assets/light-dark-mode.png)
+- [x] Dark Mode	
+
+	<img width="203" height="250" src ="https://raw.githubusercontent.com/chriszielinski/Fab/master/readme-assets/light-dark-mode.png"/>
 - [x] + more.
 
 
@@ -86,16 +82,15 @@ let fab = Fab(attachedTo: aView, items: [shareItem, emailItem])
 ```
 
 
+Documentation
+----
+
+There are a lot of properties you can dabble with. You can check out the docs [here](http://chriszielinski.github.io/Fab/). Documentation is generated with [jazzy](https://github.com/realm/jazzy) and hosted on [GitHub-Pages](https://pages.github.com).
+
 Try Me
 ----
 
 Includes a Playground and Demo.app.
-
-
-Documentation
-----
-
-You can find the docs [here](http://chriszielinski.github.io/Fab/). Documentation is generated with [jazzy](https://github.com/realm/jazzy) and hosted on [GitHub-Pages](https://pages.github.com).
 
 
 Who to blame
@@ -103,8 +98,8 @@ Who to blame
 
 - 
 
+----
 
---
 ### // ToDo:
 
 - [ ] Tests.
