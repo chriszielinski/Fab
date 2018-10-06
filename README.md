@@ -21,7 +21,7 @@ Fab. 🛍️
 	<img src ="https://raw.githubusercontent.com/chriszielinski/Fab/master/readme-assets/Fab.gif"/>
 	<br>
 	<br>
-	<code>Fab</code> is a <b>F</b>loating <b>A</b>ction <b>B</b>utton inspired by Material Design, and written in Swift.
+	A <b>F</b>loating <b>A</b>ction <b>B</b>utton for macOS. Inspired by Material Design, and written in Swift.
 	<br>
 	Based on Lourenço Marinho's <a href="https://github.com/lourenco-marinho/ActionButton"><code>ActionButton</code></a> for UIKit.
 	<br>
