@@ -31,8 +31,32 @@ public typealias FabItemAction = (FabItem) -> Void
 
 open class FabItem: NSObject {
 
+    /// Size needed for the *view* property presente the item's content.
+    static let viewSize = CGSize(width: 200, height: 35)
+
     /// The action the item should perform when tapped.
-    open var action: FabItemAction?
+    public var action: FabItemAction?
+
+    /// The item's button diameter. Default diameter of 35.
+    public let buttonDiameter: CGFloat = 35
+
+    /// The distance between the item's label and button.
+    public var labelButtonOffset: CGFloat = 0
+
+    /// Whether the menu is dismissed when this item is selected.
+    public var dismissMenuOnSelection: Bool = true
+
+    /// The value to scale the button to when the cursor enters its bounds.
+    public var buttonMouseOverScale: CGFloat = 1.05
+
+    /// Whether the item ignores mouse down events.
+    public var isDisabled: Bool = false
+
+    /// The key-equivalent of the Fab item.
+    public var keyEquivalent: FabKeyEquivalent {
+        get { return button.fabKeyEquivalent }
+        set { button.fabKeyEquivalent = newValue }
+    }
 
     /// Description of the item's action.
     open var text: String {
@@ -47,23 +71,6 @@ open class FabItem: NSObject {
 
     /// Main button that will perform the defined action.
     fileprivate var button: CircularButton!
-
-    /// Size needed for the *view* property presente the item's content.
-    static let viewSize = CGSize(width: 200, height: 35)
-
-    /// The item's button diameter. Default diameter of 35.
-    public let buttonDiameter: CGFloat = 35
-
-    /// The distance between the item's label and button.
-    public var labelButtonOffset: CGFloat = 0
-
-    /// Whether the menu is dismissed when this item is selected.
-    public var dismissMenuOnSelection: Bool = true
-
-    /// The value to scale the button to when the cursor enters its bounds.
-    public var buttonMouseOverScale: CGFloat = 1.05
-
-    public var isDisabled: Bool = false
 
     fileprivate var labelBackground: ColoredView!
     fileprivate let backgroundInset = CGSize(width: 10, height: 10)

@@ -44,19 +44,19 @@ open class Fab: NSObject {
     open var action: FabAction = { $0.toggleMenu() }
 
     /// The button's diameter.
-    public var buttonDiameter: CGFloat = 50
+    public var diameter: CGFloat = 50
 
     // The distance between each item action.
     public var itemOffset: CGFloat = 10
 
     /// The distance between the button and first item.
-    public var buttonFirstItemOffset: CGFloat = 10
+    public var firstItemOffset: CGFloat = 10
 
     /// The value to scale the button to when the cursor enters its bounds.
-    public var buttonMouseOverScale: CGFloat = 1.05
+    public var mouseOverScale: CGFloat = 1.05
 
-    /// The angle, in radians, to rotate the button when active (expanded).
-    open var buttonRotation: CGFloat = CGFloat.pi / 4
+    /// The angle, in radians, to rotate the button when moused-over and active.
+    open var mouseOverRotation: CGFloat = CGFloat.pi / 4
 
     /// The button's background color.
     open var backgroundColor: NSColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) {
@@ -67,7 +67,7 @@ open class Fab: NSObject {
     open var backgroundColorSelected: NSColor = #colorLiteral(red: 1, green: 0.231372549, blue: 0.1882352941, alpha: 1)
 
     /// Whether the button's drop shadow should be hidden when active (expanded).
-    open var hidesButtonShadowWhenActive: Bool = true
+    open var hidesShadowWhenActive: Bool = true
 
     /// Whether to present the `NSVisualEffectView` when the button is active (expanded).
     public var usesVisualEffectBackground: Bool {
@@ -75,21 +75,29 @@ open class Fab: NSObject {
         set { visualEffectView.isHidden = !newValue }
     }
 
+    /// The key-equivalent of the Fab.
+    public var keyEquivalent: FabKeyEquivalent {
+        get { return floatButton.fabKeyEquivalent }
+        set {
+            floatButton.fabKeyEquivalent = newValue
+        }
+    }
+
     /// The button's drop shadow.
-    open var buttonShadow: NSShadow? {
+    public var shadow: NSShadow? {
         get { return floatButton.shadow }
         set { floatButton.shadow = newValue }
     }
 
     /// The height of the entire expanded content. Can be used to determine the minimum window size.
     open var contentHeight: CGFloat {
-        let floatButtonHeight = 15 + CGFloat(buttonDiameter)
+        let floatButtonHeight = 15 + CGFloat(diameter)
         guard let itemCount = items?.count, itemCount > 0
             else { return floatButtonHeight }
 
         let itemsHeight = CGFloat(itemCount) * FabItem.viewSize.height
             + CGFloat(itemCount - 1) * itemOffset
-            + buttonFirstItemOffset
+            + firstItemOffset
         return floatButtonHeight + itemsHeight
     }
 
@@ -141,6 +149,9 @@ open class Fab: NSObject {
     /// Blur effect that will be presented when the button is active.
     public var visualEffectView: NSVisualEffectView!
 
+    /// Whether the Fab is animating to a different state.
+    public private(set) var isAnimating: Bool = false
+
     public init(attachedTo view: NSView, kind: Kind, items: [FabItem]?) {
         self.kind = kind
         self.items = items
@@ -148,7 +159,7 @@ open class Fab: NSObject {
 
         switch kind {
         case .colored:
-            button = CircularButton(diameter: buttonDiameter, backgroundColor: backgroundColor)
+            button = CircularButton(diameter: diameter, backgroundColor: backgroundColor)
 
             let shadow = NSShadow()
             shadow.shadowBlurRadius = 5
@@ -156,16 +167,16 @@ open class Fab: NSObject {
             button.shadow = shadow
             button.layer!.shadowOpacity = 1
         case .visualEffect:
-            button = VisualEffectButton(diameter: buttonDiameter)
+            button = VisualEffectButton(diameter: diameter)
             backgroundColor = .clear
-            hidesButtonShadowWhenActive = false
+            hidesShadowWhenActive = false
         }
 
         super.init()
 
         floatButton.cursorTrackingHandler = { [unowned self] didCursorEnter in
             // The second value is the multiplicative inverse of the first.
-            self.button.animateScaling(to: didCursorEnter ? self.buttonMouseOverScale : 1 / self.buttonMouseOverScale)
+            self.button.animateScaling(to: didCursorEnter ? self.mouseOverScale : 1 / self.mouseOverScale)
         }
         floatButton.allowsMouseDownInBounds = false
         floatButton.setButtonType(.pushOnPushOff)
@@ -206,7 +217,7 @@ open class Fab: NSObject {
                                                name: NSView.frameDidChangeNotification,
                                                object: button)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(toggleMenu),
+                                               selector: #selector(dismiss),
                                                name: .dismissFab,
                                                object: nil)
 
@@ -237,11 +248,11 @@ open class Fab: NSObject {
     /// from the bottom and the 15pts from the right of its *parentView*
     fileprivate func installConstraints() {
         let views: [String: NSView] = ["floatButton": button, "parentView": parentView]
-        let width = NSLayoutConstraint.constraints(withVisualFormat: "H:[floatButton(\(buttonDiameter))]",
+        let width = NSLayoutConstraint.constraints(withVisualFormat: "H:[floatButton(\(diameter))]",
                                                    options: .alignAllCenterX,
                                                    metrics: nil,
                                                    views: views)
-        let height = NSLayoutConstraint.constraints(withVisualFormat: "V:[floatButton(\(buttonDiameter))]",
+        let height = NSLayoutConstraint.constraints(withVisualFormat: "V:[floatButton(\(diameter))]",
                                                     options: .alignAllCenterX,
                                                     metrics: nil,
                                                     views: views)
@@ -346,7 +357,7 @@ open class Fab: NSObject {
 
         active.toggle()
 
-        if hidesButtonShadowWhenActive {
+        if hidesShadowWhenActive {
             floatButton.animator().layer!.shadowOpacity = active ? 0 : 1
         }
 
@@ -354,10 +365,17 @@ open class Fab: NSObject {
         floatButton.isHighlighted = active
     }
 
-    var isAnimating: Bool = false
+    /// Dismisses the Fab. Does nothing if the Fab is not presented.
+    @objc
+    public func dismiss() {
+        if active {
+            toggleMenu()
+        }
+    }
+
     fileprivate func animateMenu() {
         isAnimating = true
-        let rotation: CGFloat = active ? 0 : buttonRotation
+        let rotation: CGFloat = active ? 0 : mouseOverRotation
         NotificationCenter.default.post(name: .disableFabItems, object: nil)
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 0.3
@@ -370,7 +388,12 @@ open class Fab: NSObject {
             self.showActive(false)
         }, completionHandler: {
             self.isAnimating = false
-            NotificationCenter.default.post(name: .enableFabItems, object: nil)
+
+            if self.active {
+                NotificationCenter.default.post(name: .enableFabItems, object: nil)
+            } else {
+                self.placeButtonItems()
+            }
         })
     }
 
@@ -378,12 +401,12 @@ open class Fab: NSObject {
         if self.active == active {
             contentView.alphaValue = 1
 
-            let floatButtonTopOffset = (buttonDiameter / 2)
+            let floatButtonTopOffset = (diameter / 2)
                 + (FabItem.viewSize.height / 2)
             items?.enumerated().forEach { (index, item) in
                 let translation = (CGFloat(index) * -(itemOffset + FabItem.viewSize.height))
                     - floatButtonTopOffset
-                    - buttonFirstItemOffset
+                    - firstItemOffset
 
                 item.view.frame.origin.y += translation
                 item.view.layer!.position.y += translation
@@ -394,7 +417,8 @@ open class Fab: NSObject {
 
             let floatButtonCenter = button.center
             items?.forEach { item in
-                item.view.layer!.position.y += floatButtonCenter.y - item.view.center.y
+                let translation = floatButtonCenter.y - item.view.center.y
+                item.view.layer!.position.y += translation
                 item.view.alphaValue = 0
             }
         }

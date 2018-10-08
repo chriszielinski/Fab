@@ -16,42 +16,42 @@
     },
     {
       "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
-      "line": 130,
+      "line": 50,
       "symbol": "Fab.itemOffset",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
-      "line": 144,
+      "line": 155,
       "symbol": "Fab.init(attachedTo:kind:items:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
-      "line": 218,
+      "line": 229,
       "symbol": "Fab.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
-      "line": 223,
+      "line": 234,
       "symbol": "Fab.setTitle(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
-      "line": 229,
+      "line": 240,
       "symbol": "Fab.setImage(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/chriszielinski/apps/Fab/Source/Fab.swift",
-      "line": 276,
+      "line": 287,
       "symbol": "Fab.installVisualEffectViewConstraints()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -71,10 +71,31 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/chriszielinski/apps/Fab/Source/FabItem.swift",
-      "line": 66,
-      "symbol": "FabItem.isDisabled",
+      "file": "/Users/chriszielinski/apps/Fab/Source/Models/FabKeyEquivalent.swift",
+      "line": 32,
+      "symbol": "FabKeyEquivalent",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Models/FabKeyEquivalent.swift",
+      "line": 33,
+      "symbol": "FabKeyEquivalent.keyEquivalent",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Models/FabKeyEquivalent.swift",
+      "line": 34,
+      "symbol": "FabKeyEquivalent.modifierMask",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/chriszielinski/apps/Fab/Source/Models/FabKeyEquivalent.swift",
+      "line": 36,
+      "symbol": "FabKeyEquivalent.init(keyEquivalent:modifierMask:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141E3CD9216BCFE000D6EF53 /* NSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E3CD7216BCFAA00D6EF53 /* NSButton.swift */; };
+		141E3CDD216BD09400D6EF53 /* FabKeyEquivalent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E3CDB216BD05F00D6EF53 /* FabKeyEquivalent.swift */; };
 		142CC533216330F700B1A28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142CC532216330F700B1A28B /* AppDelegate.swift */; };
 		142CC535216330F700B1A28B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142CC534216330F700B1A28B /* ViewController.swift */; };
 		142CC537216330F900B1A28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142CC536216330F900B1A28B /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		141E3CD7216BCFAA00D6EF53 /* NSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButton.swift; sourceTree = "<group>"; };
+		141E3CDB216BD05F00D6EF53 /* FabKeyEquivalent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabKeyEquivalent.swift; sourceTree = "<group>"; };
 		142CC530216330F700B1A28B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142CC532216330F700B1A28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142CC534216330F700B1A28B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141E3CDA216BD04E00D6EF53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				141E3CDB216BD05F00D6EF53 /* FabKeyEquivalent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		142CC531216330F700B1A28B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 			children = (
 				14B252C021657C140081DB70 /* NSView.swift */,
 				14E3656C2166E22000D72855 /* NotificationCenter.swift */,
+				141E3CD7216BCFAA00D6EF53 /* NSButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -166,6 +179,7 @@
 		A91F90C81B34BD5800412A45 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				141E3CDA216BD04E00D6EF53 /* Models */,
 				14E365692166C82B00D72855 /* Protocols */,
 				A91F90C91B34BD5800412A45 /* Fab.swift */,
 				A91F90CA1B34BD5800412A45 /* FabItem.swift */,
@@ -324,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				146323C52166A8BC0010045B /* CircularButton.swift in Sources */,
+				141E3CD9216BCFE000D6EF53 /* NSButton.swift in Sources */,
 				14B252C921657D2A0081DB70 /* ColoredButton.swift in Sources */,
 				14B252BD216576FD0081DB70 /* Fab.swift in Sources */,
 				14B252C221657C2E0081DB70 /* NSView.swift in Sources */,
@@ -331,6 +346,7 @@
 				14E3656B2166C83800D72855 /* CursorTrackable.swift in Sources */,
 				14B252C521657C760081DB70 /* FlippableView.swift in Sources */,
 				14E3656D2166E22000D72855 /* NotificationCenter.swift in Sources */,
+				141E3CDD216BD09400D6EF53 /* FabKeyEquivalent.swift in Sources */,
 				14F448CA216659180077F6D2 /* VisualEffectButton.swift in Sources */,
 				14B252C721657CD20081DB70 /* ColoredView.swift in Sources */,
 			);

@@ -30,6 +30,7 @@ class ViewController: NSViewController {
         let twitterItem = FabItem(label: "Twitter",
                                   image: NSImage(named: "twitter_icon")!,
                                   action: presentAlert)
+        twitterItem.keyEquivalent = FabKeyEquivalent(keyEquivalent: "t", modifierMask: [.command, .shift])
 
         // These attributes will be used for the "+" item. This is necessary to center the string in the button.
         let plusIconAttributes: [NSAttributedString.Key: Any] = [
@@ -43,6 +44,7 @@ class ViewController: NSViewController {
         let addItem = FabItem(label: "Add something", buttonIcon: plusIcon) { item in
             self.presentAlert(for: item)
         }
+        addItem.keyEquivalent = FabKeyEquivalent(keyEquivalent: "a", modifierMask: [.command, .shift])
 
         // Create a Fab item using an emoji.
         // This convenience initializer applies some default formatting that should satisfy most emojis.
@@ -51,9 +53,11 @@ class ViewController: NSViewController {
         emojiItem.action = { item in
             self.presentAlert(for: item)
         }
+        emojiItem.keyEquivalent = FabKeyEquivalent(keyEquivalent: "e", modifierMask: [.command, .shift])
 
         // Create a translucent, vibrant Fab.
         fab = Fab(attachedTo: view, kind: .visualEffect, items: [twitterItem, addItem, emojiItem])
+        fab.keyEquivalent = FabKeyEquivalent(keyEquivalent: "f", modifierMask: [.command])
 
         // Uncomment to create a Fab with a solid background instead.
 //        fab = Fab(attachedToView: view, kind: .colored, items: [twitterItem, addItem, emojiItem])

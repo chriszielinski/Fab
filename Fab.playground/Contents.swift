@@ -1,9 +1,8 @@
 //: `Fab` is a **F**loating **A**ction **B**utton inspired by Material Design.
 
-
 import AppKit
 import PlaygroundSupport
-/// Note: Must first build the framework (⌘B).
+/// Note: Must use within the Xcode project, AND must first build the framework (⌘B).
 import Fab
 
 let imageView = NSImageView(frame: NSRect(origin: .zero, size: CGSize(width: 640, height: 360)))
@@ -19,6 +18,7 @@ func selected(item: FabItem) {
 let twitterItem = FabItem(label: "Twitter",
                                    image: NSImage(named: "twitter_icon")!,
                                    action: selected)
+twitterItem.keyEquivalent = FabKeyEquivalent(keyEquivalent: "t", modifierMask: [.command, .shift])
 
 // These attributes will be used for the "+" item. This is necessary to center the string in the button.
 let plusIconAttributes: [NSAttributedString.Key: Any] = [
@@ -32,6 +32,7 @@ let plusIcon = NSAttributedString(string: "+", attributes: plusIconAttributes)
 let addItem = FabItem(label: "Add something", buttonIcon: plusIcon) { item in
     selected(item: item)
 }
+addItem.keyEquivalent = FabKeyEquivalent(keyEquivalent: "a", modifierMask: [.command, .shift])
 
 // Create an action item using an emoji.
 // This convenience initializer applies some default formatting that should satisfy most emojis.
@@ -40,9 +41,11 @@ let emojiItem = FabItem(label: "Emoji", emoji: "👍")
 emojiItem.action = { item in
     selected(item: item)
 }
+emojiItem.keyEquivalent = FabKeyEquivalent(keyEquivalent: "e", modifierMask: [.command, .shift])
 
 // Create a translucent, vibrant Fab.
 let fab = Fab(attachedTo: imageView, kind: .visualEffect, items: [twitterItem, addItem, emojiItem])
+fab.keyEquivalent = FabKeyEquivalent(keyEquivalent: "f", modifierMask: [.command])
 
 // Uncomment to create a Fab with a solid background instead.
 //        fab = Fab(attachedToView: view, kind: .colored, items: [twitterItem, addItem, emojiItem])
