@@ -52,12 +52,6 @@ open class FabItem: NSObject {
     /// Whether the item ignores mouse down events.
     public var isDisabled: Bool = false
 
-    /// The key-equivalent of the Fab item.
-    public var keyEquivalent: FabKeyEquivalent {
-        get { return button.fabKeyEquivalent }
-        set { button.fabKeyEquivalent = newValue }
-    }
-
     /// Description of the item's action.
     open var text: String {
         get { return label.stringValue }

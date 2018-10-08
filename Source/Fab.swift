@@ -198,6 +198,7 @@ open class Fab: NSObject {
                                   backgroundColor: .clear,
                                   shouldFlip: true)
         contentView.alphaValue = 0
+        contentView.isHidden = true
         let gestureRecognizer = NSClickGestureRecognizer(target: self,
                                                          action: #selector(backgroundClicked(_:)))
         gestureRecognizer.delegate = self
@@ -354,8 +355,11 @@ open class Fab: NSObject {
 
     /// Presents or hides all the Fab's actions and changes the *active* state.
     fileprivate func toggle() {
-        animateMenu()
+        if !active {
+            contentView.isHidden = false
+        }
 
+        animateMenu()
         active.toggle()
 
         if hidesShadowWhenActive {
@@ -364,6 +368,10 @@ open class Fab: NSObject {
 
         floatButton.backgroundColor = active ? backgroundColorSelected : backgroundColor
         floatButton.isHighlighted = active
+
+        if !active {
+            contentView.isHidden = true
+        }
     }
 
     /// Dismisses the Fab. Does nothing if the Fab is not presented.
