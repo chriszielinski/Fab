@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name             = 'Fab'
-  s.version          = '0.1.0'
+  s.version          = '1.0'
   s.summary          = '🛍️ A Floating Action Button for macOS. Inspired by Material Design, and written in Swift.'
   s.homepage         = 'https://github.com/chriszielinski/Fab'
   s.screenshots     = 'https://raw.githubusercontent.com/chriszielinski/Fab/master/readme-assets/Fab.gif'
