@@ -43,6 +43,18 @@ open class Fab: NSObject {
     /// The action the button should perform when tapped.
     open var action: FabAction = { $0.toggleMenu() }
 
+    /// The button's diameter.
+    public var buttonDiameter: CGFloat = 50
+
+    // The distance between each item action.
+    public var itemOffset: CGFloat = 10
+
+    /// The distance between the button and first item.
+    public var buttonFirstItemOffset: CGFloat = 10
+
+    /// The value to scale the button to when the cursor enters its bounds.
+    public var buttonMouseOverScale: CGFloat = 1.05
+
     /// The angle, in radians, to rotate the button when active (expanded).
     open var buttonRotation: CGFloat = CGFloat.pi / 4
 
@@ -56,6 +68,12 @@ open class Fab: NSObject {
 
     /// Whether the button's drop shadow should be hidden when active (expanded).
     open var hidesButtonShadowWhenActive: Bool = true
+
+    /// Whether to present the `NSVisualEffectView` when the button is active (expanded).
+    public var usesVisualEffectBackground: Bool {
+        get { return visualEffectView.isHidden }
+        set { visualEffectView.isHidden = !newValue }
+    }
 
     /// The button's drop shadow.
     open var buttonShadow: NSShadow? {
@@ -122,24 +140,6 @@ open class Fab: NSObject {
 
     /// Blur effect that will be presented when the button is active.
     public var visualEffectView: NSVisualEffectView!
-
-    /// The button's diameter.
-    public var buttonDiameter: CGFloat = 50
-
-    // The distance between each item action.
-    public var itemOffset: CGFloat = 10
-
-    /// The distance between the button and first item.
-    public var buttonFirstItemOffset: CGFloat = 10
-
-    /// The value to scale the button to when the cursor enters its bounds.
-    public var buttonMouseOverScale: CGFloat = 1.05
-
-    /// Whether to present the `NSVisualEffectView` when the button is active (expanded).
-    public var usesVisualEffectBackground: Bool {
-        get { return visualEffectView.isHidden }
-        set { visualEffectView.isHidden = newValue }
-    }
 
     public init(attachedTo view: NSView, kind: Kind, items: [FabItem]?) {
         self.kind = kind
