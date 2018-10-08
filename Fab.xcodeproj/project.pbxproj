@@ -58,7 +58,7 @@
 		142CC539216330F900B1A28B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		142CC53B216330F900B1A28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		142CC53C216330F900B1A28B /* Fab-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fab-Demo.entitlements"; sourceTree = "<group>"; };
-		1441ED9D21685CCF00BEEA65 /* Fab.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Fab.playground; path = Fab.xcodeproj/Fab.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1441ED9D21685CCF00BEEA65 /* Fab.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Fab.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		146323C22166A8330010045B /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		14B252B0216576ED0081DB70 /* Fab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B252B2216576ED0081DB70 /* Fab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fab.h; sourceTree = "<group>"; };

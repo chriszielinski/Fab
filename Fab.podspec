@@ -1,24 +1,38 @@
-#
-# Be sure to run `pod lib lint Fab.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
-  s.name             = "Fab"
-  s.version          = "0.1"
-  s.summary          = "Action button is a Floating Action Button inspired from Google Inbox implemented in Swift"
-  s.homepage         = "https://github.com/lourenco-marinho/ActionButton"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
-  s.author           = { "Lourenço Marinho" => "lourenco.pmarinho@gmail.com" }
-  s.source           = { :git => "https://github.com/lourenco-marinho/ActionButton.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/lopima'
 
-  s.platform     = :macOS, '10.12'
-  s.requires_arc = true
-  s.source_files = 'Source/*.swift'
+  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+
+  s.name             = 'Fab'
+  s.version          = '0.1.0'
+  s.summary          = '🛍️ A Floating Action Button for macOS. Inspired by Material Design, and written in Swift.'
+  s.homepage         = 'https://github.com/chriszielinski/Fab'
+  s.screenshots     = 'https://raw.githubusercontent.com/chriszielinski/Fab/master/readme-assets/Fab.gif'
+
+
+  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+
+
+  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+
+  s.author           = { 'chriszielinski' => 'chrisz@berkeley.edu', 'lourenco-marinho' => 'lourenco.pmarinho@gmail.com' }
+  s.social_media_url = 'http://twitter.com/mightbesuperman'
+
+
+  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+
+  s.platform = :osx, '10.12'
+
+
+  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+
+  s.source           = { :git => 'https://github.com/chriszielinski/Fab.git', :tag => s.version.to_s }
+
+
+  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+
+  s.source_files     = 'Source/**/*.swift'
+  s.swift_version    = "4.2"
+
 end
