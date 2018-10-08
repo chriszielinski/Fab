@@ -232,6 +232,5 @@ open class FabItem: NSObject {
     func changeItemState(isEnabled: Bool) {
         button.ignoresMouseEvents = !isEnabled
         labelBackground.ignoresMouseEvents = !isEnabled
-        labelBackground.gestureRecognizers.first?.isEnabled = isEnabled
     }
 }

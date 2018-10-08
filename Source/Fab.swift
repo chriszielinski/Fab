@@ -141,7 +141,7 @@ open class Fab: NSObject {
     }
 
     /// View that will hold the placement of the button's actions.
-    fileprivate var contentView: NSView!
+    fileprivate var contentView: ColoredView!
 
     /// View where the *floatButton* will be displayed.
     fileprivate weak var parentView: NSView!
@@ -200,7 +200,7 @@ open class Fab: NSObject {
         contentView.alphaValue = 0
         let gestureRecognizer = NSClickGestureRecognizer(target: self,
                                                          action: #selector(backgroundClicked(_:)))
-        gestureRecognizer.delaysPrimaryMouseButtonEvents = false
+        gestureRecognizer.delegate = self
         contentView.addGestureRecognizer(gestureRecognizer)
 
         visualEffectView = NSVisualEffectView()
@@ -224,6 +224,7 @@ open class Fab: NSObject {
         installConstraints()
         placeButtonItems()
         showActive(true)
+        disableMenu()
     }
 
     required public init(coder aDecoder: NSCoder) {
@@ -373,10 +374,24 @@ open class Fab: NSObject {
         }
     }
 
+    /// Enables mouse events for the button's menu.
+    public func enableMenu() {
+        NotificationCenter.default.post(name: .enableFabItems, object: nil)
+        contentView.ignoresMouseEvents = false
+    }
+
+    /// Disables mouse events for the button's menu.
+    public func disableMenu() {
+        NotificationCenter.default.post(name: .disableFabItems, object: nil)
+        contentView.ignoresMouseEvents = true
+    }
+
     fileprivate func animateMenu() {
         isAnimating = true
         let rotation: CGFloat = active ? 0 : mouseOverRotation
-        NotificationCenter.default.post(name: .disableFabItems, object: nil)
+
+        disableMenu()
+
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 0.3
             context.allowsImplicitAnimation = true
@@ -390,7 +405,7 @@ open class Fab: NSObject {
             self.isAnimating = false
 
             if self.active {
-                NotificationCenter.default.post(name: .enableFabItems, object: nil)
+                self.enableMenu()
             } else {
                 self.placeButtonItems()
             }
@@ -422,5 +437,17 @@ open class Fab: NSObject {
                 item.view.alphaValue = 0
             }
         }
+    }
+}
+
+extension Fab: NSGestureRecognizerDelegate {
+    @objc
+    public func gestureRecognizer(_ gestureRecognizer: NSGestureRecognizer,
+                                  shouldAttemptToRecognizeWith event: NSEvent) -> Bool {
+        var point = contentView.convert(event.locationInWindow, from: nil)
+        // contentView is flipped.
+        point.y = contentView.frame.height - point.y
+        // Ignore if hit view is a button.
+        return !(contentView.hitTest(point) is NSButton)
     }
 }

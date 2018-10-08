@@ -32,7 +32,9 @@ import Cocoa
 
 class ColoredView: FlippableView, CursorTrackable {
 
-    var ignoresMouseEvents: Bool = false
+    var ignoresMouseEvents: Bool = false {
+        didSet { gestureRecognizers.setEnabled(to: !ignoresMouseEvents) }
+    }
     let backgroundColor: NSColor
 
     // MARK: - Cursor Trackable

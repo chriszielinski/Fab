@@ -14,6 +14,7 @@
 		142CC537216330F900B1A28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142CC536216330F900B1A28B /* Assets.xcassets */; };
 		142CC53A216330F900B1A28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142CC538216330F900B1A28B /* Main.storyboard */; };
 		146323C52166A8BC0010045B /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146323C22166A8330010045B /* CircularButton.swift */; };
+		1471D10E216BE7760064647A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471D10D216BE7760064647A /* Array.swift */; };
 		14B252B4216576ED0081DB70 /* Fab.h in Headers */ = {isa = PBXBuildFile; fileRef = 14B252B2216576ED0081DB70 /* Fab.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14B252B7216576ED0081DB70 /* Fab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B252B0216576ED0081DB70 /* Fab.framework */; };
 		14B252B8216576ED0081DB70 /* Fab.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14B252B0216576ED0081DB70 /* Fab.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -64,6 +65,7 @@
 		142CC53C216330F900B1A28B /* Fab-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fab-Demo.entitlements"; sourceTree = "<group>"; };
 		1441ED9D21685CCF00BEEA65 /* Fab.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Fab.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		146323C22166A8330010045B /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		1471D10D216BE7760064647A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		14B252B0216576ED0081DB70 /* Fab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B252B2216576ED0081DB70 /* Fab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fab.h; sourceTree = "<group>"; };
 		14B252B3216576ED0081DB70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				14B252C021657C140081DB70 /* NSView.swift */,
 				14E3656C2166E22000D72855 /* NotificationCenter.swift */,
 				141E3CD7216BCFAA00D6EF53 /* NSButton.swift */,
+				1471D10D216BE7760064647A /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				14E3656B2166C83800D72855 /* CursorTrackable.swift in Sources */,
 				14B252C521657C760081DB70 /* FlippableView.swift in Sources */,
 				14E3656D2166E22000D72855 /* NotificationCenter.swift in Sources */,
+				1471D10E216BE7760064647A /* Array.swift in Sources */,
 				141E3CDD216BD09400D6EF53 /* FabKeyEquivalent.swift in Sources */,
 				14F448CA216659180077F6D2 /* VisualEffectButton.swift in Sources */,
 				14B252C721657CD20081DB70 /* ColoredView.swift in Sources */,
