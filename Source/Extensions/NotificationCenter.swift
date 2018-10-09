@@ -31,7 +31,9 @@
 import Cocoa
 
 extension Notification.Name {
-    static let dismissFab = Notification.Name("dismissFab")
-    static let disableFabItems = Notification.Name("disableFabItems")
-    static let enableFabItems = Notification.Name("enableFabItems")
+    static let didSelectFabItem = Notification.Name("didSelectFabItemNotification")
+    static let dismissFab = Notification.Name("dismissFabNotification")
+
+    static let disableFabItems = Notification.Name("disableFabItemsNotification")
+    static let enableFabItems = Notification.Name("enableFabItemsNotification")
 }

@@ -9,8 +9,8 @@ let imageView = NSImageView(frame: NSRect(origin: .zero, size: CGSize(width: 640
 imageView.image = NSImage(named: "mojave-day")!
 PlaygroundPage.current.liveView = imageView
 
-func selected(item: FabItem) {
-    print("Selected \"\(item.text)\"")
+func selected(item: FabItem, with index: Int) {
+    print("Selected item \(index): \"\(item.text)\"")
 }
 
 // Create an action item using an image.
@@ -28,16 +28,16 @@ let plusIconAttributes: [NSAttributedString.Key: Any] = [
 let plusIcon = NSAttributedString(string: "+", attributes: plusIconAttributes)
 // Create an action item using an attributed string.
 // Note: Here we are using a trailing closure for the item action.
-let addItem = FabItem(label: "Add something", buttonIcon: plusIcon) { item in
-    selected(item: item)
+let addItem = FabItem(label: "Add something", buttonIcon: plusIcon) { (item, itemIndex) in
+    selected(item: item, with: itemIndex)
 }
 
 // Create an action item using an emoji.
 // This convenience initializer applies some default formatting that should satisfy most emojis.
 let emojiItem = FabItem(label: "Emoji", emoji: "👍")
 // Or you can assign the item action after initializing the item.
-emojiItem.action = { item in
-    selected(item: item)
+emojiItem.action = { (item, itemIndex) in
+    selected(item: item, with: itemIndex)
 }
 
 // Create a translucent, vibrant Fab.

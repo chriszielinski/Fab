@@ -13,9 +13,9 @@ class ViewController: NSViewController {
 
     var fab: Fab!
 
-    func presentAlert(for item: FabItem) {
+    func presentAlert(for item: FabItem, with index: Int) {
         let alert = NSAlert()
-        alert.messageText = "Pressed: \"\(item.text)\""
+        alert.messageText = "Pressed item \(index): \"\(item.text)\""
 
         if let window = view.window {
             alert.beginSheetModal(for: window)
@@ -40,16 +40,16 @@ class ViewController: NSViewController {
         let plusIcon = NSAttributedString(string: "+", attributes: plusIconAttributes)
         // Create a Fab item using an attributed string.
         // Note: Here we are using a trailing closure for the item action.
-        let addItem = FabItem(label: "Add something", buttonIcon: plusIcon) { item in
-            self.presentAlert(for: item)
+        let addItem = FabItem(label: "Add something", buttonIcon: plusIcon) { (item, itemIndex) in
+            self.presentAlert(for: item, with: itemIndex)
         }
 
         // Create a Fab item using an emoji.
         // This convenience initializer applies some default formatting that should satisfy most emojis.
         let emojiItem = FabItem(label: "Emoji", emoji: "👍")
         // Or you can assign the item action after initializing the item.
-        emojiItem.action = { item in
-            self.presentAlert(for: item)
+        emojiItem.action = { (item, itemIndex) in
+            self.presentAlert(for: item, with: itemIndex)
         }
 
         // Create a translucent, vibrant Fab.

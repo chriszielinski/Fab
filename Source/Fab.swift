@@ -28,9 +28,9 @@
 
 import AppKit
 
-public typealias FabAction = (Fab) -> Void
-
 open class Fab: NSObject {
+
+    public typealias Action = (Fab) -> Void
 
     /// The type of the button.
     public enum Kind {
@@ -40,8 +40,8 @@ open class Fab: NSObject {
         case visualEffect
     }
 
-    /// The action the button should perform when tapped.
-    open var action: FabAction = { $0.toggleMenu() }
+    /// The action the button should perform when tapped. The default action simply dismisses it.
+    open var action: Action = { $0.toggleMenu() }
 
     /// The button's diameter.
     public var diameter: CGFloat = 50
@@ -221,6 +221,10 @@ open class Fab: NSObject {
                                                selector: #selector(dismiss),
                                                name: .dismissFab,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(selectedFabItem(_:)),
+                                               name: .didSelectFabItem,
+                                               object: nil)
 
         installConstraints()
         placeButtonItems()
@@ -322,6 +326,15 @@ open class Fab: NSObject {
             toggleMenu()
         }
         placeButtonItems()
+    }
+
+    @objc
+    func selectedFabItem(_ notification: Notification) {
+        guard let fabItem = notification.object as? FabItem,
+            let fabItemIndex = items?.firstIndex(where: { $0 == fabItem })
+            else { return }
+
+        fabItem.action?(fabItem, fabItemIndex)
     }
 
     // MARK: - Custom Methods

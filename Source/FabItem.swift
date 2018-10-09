@@ -27,15 +27,16 @@
 
 import AppKit
 
-public typealias FabItemAction = (FabItem) -> Void
-
 open class FabItem: NSObject {
+
+    public typealias Index = Int
+    public typealias Action = (FabItem, Index) -> Void
 
     /// Size needed for the *view* property presente the item's content.
     static let viewSize = CGSize(width: 200, height: 35)
 
     /// The action the item should perform when tapped.
-    public var action: FabItemAction?
+    public var action: Action?
 
     /// The item's button diameter. Default diameter of 35.
     public let buttonDiameter: CGFloat = 35
@@ -79,7 +80,7 @@ open class FabItem: NSObject {
     /// - Parameters:
     ///   - label: The string to display in the label.
     ///   - emoji: The emoji to display in the button.
-    public init(label: String?, image: NSImage, action: FabItemAction? = nil) {
+    public init(label: String?, image: NSImage, action: Action? = nil) {
         super.init()
 
         createButton(label: label, image: image, buttonIcon: nil)
@@ -91,7 +92,7 @@ open class FabItem: NSObject {
     /// - Parameters:
     ///   - label: The string to display in the label.
     ///   - buttonIcon: The attributed string to display in the button. Should be a single character.
-    public init(label: String?, buttonIcon: NSAttributedString, action: FabItemAction? = nil) {
+    public init(label: String?, buttonIcon: NSAttributedString, action: Action? = nil) {
         super.init()
 
         createButton(label: label, image: nil, buttonIcon: buttonIcon)
@@ -101,7 +102,7 @@ open class FabItem: NSObject {
     /// Creates a new Fab item with only a label.
     ///
     /// - Parameter label: The string to display in the label.
-    public init(label: String, action: FabItemAction? = nil) {
+    public init(label: String, action: Action? = nil) {
         super.init()
 
         createButton(label: label, image: nil, buttonIcon: nil)
@@ -115,7 +116,7 @@ open class FabItem: NSObject {
     /// - Parameters:
     ///   - label: The string to display in the label.
     ///   - emoji: The emoji to display in the button.
-    public convenience init(label: String?, emoji: String, action: FabItemAction? = nil) {
+    public convenience init(label: String?, emoji: String, action: Action? = nil) {
         let emojiAttributes: [NSAttributedString.Key: Any] = [
                 .font: NSFont.systemFont(ofSize: 15),
                 .baselineOffset: -1
@@ -208,7 +209,7 @@ open class FabItem: NSObject {
             NotificationCenter.default.post(name: .dismissFab, object: nil)
         }
 
-        action?(self)
+        NotificationCenter.default.post(name: .didSelectFabItem, object: self)
     }
 
     // MARK: - Notification Methods
