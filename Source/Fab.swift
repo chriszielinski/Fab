@@ -368,10 +368,6 @@ open class Fab: NSObject {
 
         floatButton.backgroundColor = active ? backgroundColorSelected : backgroundColor
         floatButton.isHighlighted = active
-
-        if !active {
-            contentView.isHidden = true
-        }
     }
 
     /// Dismisses the Fab. Does nothing if the Fab is not presented.
@@ -416,6 +412,7 @@ open class Fab: NSObject {
                 self.enableMenu()
             } else {
                 self.placeButtonItems()
+                self.contentView.isHidden = true
             }
         })
     }
