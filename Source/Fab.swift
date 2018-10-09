@@ -105,7 +105,7 @@ open class Fab: NSObject {
     fileprivate(set) open var active: Bool = false
 
     /// An array of items that the button will present.
-    internal var items: [FabItem]? {
+    public var items: [FabItem]? {
         willSet {
             items?.forEach {
                 $0.view.removeFromSuperview()
