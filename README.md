@@ -2,10 +2,10 @@ Fab. 🛍️
 ----
  
 <p align="center">
-	<a href="http://cocoadocs.org/docsets/Fab" style="text-decoration:none">
+	<a href="https://cocoapods.org/pods/Fab" style="text-decoration:none">
 		<img alt="Platform" src ="https://img.shields.io/cocoapods/p/Fab.svg?style=flat"/>
 	</a>
-	<a href="http://cocoadocs.org/docsets/Fab/" style="text-decoration:none">
+	<a href="https://cocoapods.org/pods/Fab" style="text-decoration:none">
 		<img alt="Pod Version" src ="https://img.shields.io/cocoapods/v/Fab.svg?style=flat"/>
 	</a>
 	<a href="https://github.com/Carthage/Carthage" style="text-decoration:none">
