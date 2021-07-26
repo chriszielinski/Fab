@@ -12,7 +12,7 @@ Fab. 🛍️
 		<img alt="Carthage compatible" src ="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/>
 	</a>
 	<a href="https://developer.apple.com/swift" style="text-decoration:none">
-		<img alt="Swift Version" src ="https://img.shields.io/badge/language-swift%204.2-brightgreen.svg"/>
+		<img alt="Swift Version" src ="https://img.shields.io/badge/language-swift%205-brightgreen.svg"/>
 	</a>
 	<a href="https://github.com/chriszielinski/Fab/blob/master/LICENSE" style="text-decoration:none">
 		<img alt="GitHub license" src ="https://img.shields.io/badge/license-MIT-blue.svg"/>

@@ -356,7 +356,7 @@ open class Fab: NSObject {
     /// Defines the position of all the Fab's actions
     fileprivate func placeButtonItems() {
         let floatButtonCenter = button.center
-        items?.enumerated().forEach { (index, item) in
+        items?.enumerated().forEach { (_, item) in
             item.view.removeFromSuperview()
             contentView.addSubview(item.view)
 
