@@ -36,22 +36,22 @@ open class FabItem: NSObject {
     static let viewSize = CGSize(width: 200, height: 35)
 
     /// The action the item should perform when tapped.
-    public var action: Action?
+    open var action: Action?
 
     /// The item's button diameter. Default diameter of 35.
     public let buttonDiameter: CGFloat = 35
 
     /// The distance between the item's label and button.
-    public var labelButtonOffset: CGFloat = 0
+    open var labelButtonOffset: CGFloat = 0
 
     /// Whether the menu is dismissed when this item is selected.
-    public var dismissMenuOnSelection: Bool = true
+    open var dismissMenuOnSelection: Bool = true
 
     /// The value to scale the button to when the cursor enters its bounds.
-    public var buttonMouseOverScale: CGFloat = 1.05
+    open var buttonMouseOverScale: CGFloat = 1.05
 
     /// Whether the item ignores mouse down events.
-    public var isDisabled: Bool = false
+    open var isDisabled: Bool = false
 
     /// Description of the item's action.
     open var text: String {
@@ -62,16 +62,16 @@ open class FabItem: NSObject {
     internal var view: ColoredView!
 
     /// Label that contain the item's *text*.
-    fileprivate var label: NSTextField!
+    open var label: NSTextField!
 
     /// Main button that will perform the defined action.
-    fileprivate var button: CircularButton!
+    open var button: CircularButton!
 
     fileprivate var labelBackground: ColoredView!
     fileprivate let backgroundInset = CGSize(width: 10, height: 10)
 
     /// Whether the item's right button should be hidden.
-    fileprivate var shouldHideButton: Bool {
+    open var shouldHideButton: Bool {
         return button.image == nil && button.title.isEmpty
     }
 
@@ -126,7 +126,7 @@ open class FabItem: NSObject {
         self.init(label: label, buttonIcon: attributedString, action: action)
     }
 
-    func createButton(label optionalTitle: String?, image: NSImage?, buttonIcon: NSAttributedString?) {
+    open func createButton(label optionalTitle: String?, image: NSImage?, buttonIcon: NSAttributedString?) {
         let cursorTrackingHandler: ((Bool) -> Void) = { [unowned self] didCursorEnter in
             // The second value is the multiplicative inverse of the first.
             self.view.animateScaling(to: didCursorEnter ? self.buttonMouseOverScale : 1 / self.buttonMouseOverScale)
@@ -204,7 +204,8 @@ open class FabItem: NSObject {
 
     // MARK: - Action Methods
 
-    @objc func itemClicked(_ sender: Any) {
+    @objc
+    open func itemClicked(_ sender: Any) {
         if dismissMenuOnSelection {
             NotificationCenter.default.post(name: .dismissFab, object: nil)
         }
@@ -215,16 +216,16 @@ open class FabItem: NSObject {
     // MARK: - Notification Methods
 
     @objc
-    func disableFabItem() {
+    open func disableFabItem() {
         changeItemState(isEnabled: false)
     }
 
     @objc
-    func enableFabItem() {
+    open func enableFabItem() {
         changeItemState(isEnabled: true)
     }
 
-    func changeItemState(isEnabled: Bool) {
+    open func changeItemState(isEnabled: Bool) {
         button.ignoresMouseEvents = !isEnabled
         labelBackground.ignoresMouseEvents = !isEnabled
     }
