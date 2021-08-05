@@ -89,6 +89,13 @@ open class Fab: NSObject {
         set { floatButton.shadow = newValue }
     }
 
+    /// Returns the origin used to start placing the items from.
+    ///
+    /// This property has a default value of `button.center`.
+    open var itemPlacementOrigin: NSPoint {
+        return button.center
+    }
+
     /// The height of the entire expanded content. Can be used to determine the minimum window size.
     open var contentHeight: CGFloat {
         let floatButtonHeight = 15 + CGFloat(diameter)
@@ -356,14 +363,23 @@ open class Fab: NSObject {
 
     // MARK: - Fab Items Placement
 
+    /// Returns the horizontal offset applied to the item at the specified index.
+    ///
+    /// The default implementation always returns `0`.
+    open func horizontalItemOffset(for itemIndex: Int) -> CGFloat {
+        return 0
+    }
+
     /// Defines the position of all the Fab's actions
     open func placeButtonItems() {
-        let floatButtonCenter = button.center
-        items?.enumerated().forEach { (_, item) in
+        let placementOrigin = itemPlacementOrigin
+
+        items?.enumerated().forEach { (itemIndex, item) in
             item.view.removeFromSuperview()
             contentView.addSubview(item.view)
 
-            item.view.center = CGPoint(x: floatButtonCenter.x - 83, y: floatButtonCenter.y)
+            item.view.center = CGPoint(x: placementOrigin.x - horizontalItemOffset(for: itemIndex) - 83,
+                                       y: placementOrigin.y)
         }
     }
 
