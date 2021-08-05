@@ -44,16 +44,16 @@ open class Fab: NSObject {
     open var action: Action = { $0.toggleMenu() }
 
     /// The button's diameter.
-    public var diameter: CGFloat = 50
+    open var diameter: CGFloat = 50
 
     // The distance between each item action.
-    public var itemOffset: CGFloat = 10
+    open var itemOffset: CGFloat = 10
 
     /// The distance between the button and first item.
-    public var firstItemOffset: CGFloat = 10
+    open var firstItemOffset: CGFloat = 10
 
     /// The value to scale the button to when the cursor enters its bounds.
-    public var mouseOverScale: CGFloat = 1.05
+    open var mouseOverScale: CGFloat = 1.05
 
     /// The angle, in radians, to rotate the button when moused-over and active.
     open var mouseOverRotation: CGFloat = CGFloat.pi / 4
@@ -70,13 +70,13 @@ open class Fab: NSObject {
     open var hidesShadowWhenActive: Bool = true
 
     /// Whether to present the `NSVisualEffectView` when the button is active (expanded).
-    public var usesVisualEffectBackground: Bool {
+    open var usesVisualEffectBackground: Bool {
         get { return visualEffectView.isHidden }
         set { visualEffectView.isHidden = !newValue }
     }
 
     /// The key-equivalent of the Fab.
-    public var keyEquivalent: FabKeyEquivalent {
+    open var keyEquivalent: FabKeyEquivalent {
         get { return floatButton.fabKeyEquivalent }
         set {
             floatButton.fabKeyEquivalent = newValue
@@ -84,7 +84,7 @@ open class Fab: NSObject {
     }
 
     /// The button's drop shadow.
-    public var shadow: NSShadow? {
+    open var shadow: NSShadow? {
         get { return floatButton.shadow }
         set { floatButton.shadow = newValue }
     }
@@ -105,7 +105,7 @@ open class Fab: NSObject {
     fileprivate(set) open var active: Bool = false
 
     /// An array of items that the button will present.
-    public var items: [FabItem]? {
+    open var items: [FabItem]? {
         willSet {
             items?.forEach {
                 $0.view.removeFromSuperview()
@@ -125,12 +125,12 @@ open class Fab: NSObject {
     /// Returns the `VisualEffectButton`.
     ///
     /// - Note: Only a non-nil value when the button kind is `.visualEffect`.
-    public var visualEffectButton: VisualEffectButton? {
+    open var visualEffectButton: VisualEffectButton? {
         return button as? VisualEffectButton
     }
 
     /// The button that will be presented to the user.
-    public var floatButton: CircularButton {
+    open var floatButton: CircularButton {
         switch kind {
         case .visualEffect:
             return visualEffectButton!.button
@@ -144,13 +144,13 @@ open class Fab: NSObject {
     fileprivate var contentView: ColoredView!
 
     /// View where the *floatButton* will be displayed.
-    fileprivate weak var parentView: NSView!
+    open weak var parentView: NSView!
 
     /// Blur effect that will be presented when the button is active.
-    public var visualEffectView: NSVisualEffectView!
+    open var visualEffectView: NSVisualEffectView!
 
     /// Whether the Fab is animating to a different state.
-    public private(set) var isAnimating: Bool = false
+    open private(set) var isAnimating: Bool = false
 
     public init(attachedTo view: NSView, kind: Kind, items: [FabItem]?) {
         self.kind = kind
@@ -252,7 +252,7 @@ open class Fab: NSObject {
 
     /// Install all the necessary constraints for the button. By the default the button will be placed at 15pts
     /// from the bottom and the 15pts from the right of its *parentView*
-    fileprivate func installConstraints() {
+    open func installConstraints() {
         let views: [String: NSView] = ["floatButton": button, "parentView": parentView]
         let width = NSLayoutConstraint.constraints(withVisualFormat: "H:[floatButton(\(diameter))]",
                                                    options: .alignAllCenterX,
@@ -304,7 +304,7 @@ open class Fab: NSObject {
     // MARK: - Button Actions Methods
 
     @objc
-    func buttonClicked(_ sender: NSControl) {
+    open func buttonClicked(_ sender: NSControl) {
         button.animateScaling(to: 1)
         action(self)
     }
@@ -312,7 +312,7 @@ open class Fab: NSObject {
     // MARK: - Gesture Recognizer Methods
 
     @objc
-    func backgroundClicked(_ gesture: NSGestureRecognizer) {
+    open func backgroundClicked(_ gesture: NSGestureRecognizer) {
         if active {
             toggleMenu()
         }
@@ -321,7 +321,7 @@ open class Fab: NSObject {
     // MARK: - Notification Methods
 
     @objc
-    func didButtonFrameChange() {
+    open func didButtonFrameChange() {
         if active {
             toggleMenu()
         }
@@ -329,7 +329,7 @@ open class Fab: NSObject {
     }
 
     @objc
-    func selectedFabItem(_ notification: Notification) {
+    open func selectedFabItem(_ notification: Notification) {
         guard let fabItem = notification.object as? FabItem,
             let fabItemIndex = items?.firstIndex(where: { $0 == fabItem })
             else { return }
@@ -354,7 +354,7 @@ open class Fab: NSObject {
     // MARK: - Fab Items Placement
 
     /// Defines the position of all the Fab's actions
-    fileprivate func placeButtonItems() {
+    open func placeButtonItems() {
         let floatButtonCenter = button.center
         items?.enumerated().forEach { (_, item) in
             item.view.removeFromSuperview()
@@ -367,7 +367,7 @@ open class Fab: NSObject {
     // MARK: - Float Menu Methods
 
     /// Presents or hides all the Fab's actions and changes the *active* state.
-    fileprivate func toggle() {
+    open func toggle() {
         if !active {
             contentView.isHidden = false
         }
@@ -385,25 +385,25 @@ open class Fab: NSObject {
 
     /// Dismisses the Fab. Does nothing if the Fab is not presented.
     @objc
-    public func dismiss() {
+    open func dismiss() {
         if active {
             toggleMenu()
         }
     }
 
     /// Enables mouse events for the button's menu.
-    public func enableMenu() {
+    open func enableMenu() {
         NotificationCenter.default.post(name: .enableFabItems, object: nil)
         contentView.ignoresMouseEvents = false
     }
 
     /// Disables mouse events for the button's menu.
-    public func disableMenu() {
+    open func disableMenu() {
         NotificationCenter.default.post(name: .disableFabItems, object: nil)
         contentView.ignoresMouseEvents = true
     }
 
-    fileprivate func animateMenu() {
+    open func animateMenu() {
         isAnimating = true
         let rotation: CGFloat = active ? 0 : mouseOverRotation
 
@@ -430,7 +430,7 @@ open class Fab: NSObject {
         })
     }
 
-    fileprivate func showActive(_ active: Bool) {
+    open func showActive(_ active: Bool) {
         if self.active == active {
             contentView.alphaValue = 1
 
@@ -460,7 +460,7 @@ open class Fab: NSObject {
 
 extension Fab: NSGestureRecognizerDelegate {
     @objc
-    public func gestureRecognizer(_ gestureRecognizer: NSGestureRecognizer,
+    open func gestureRecognizer(_ gestureRecognizer: NSGestureRecognizer,
                                   shouldAttemptToRecognizeWith event: NSEvent) -> Bool {
         var point = contentView.convert(event.locationInWindow, from: nil)
         // contentView is flipped.
