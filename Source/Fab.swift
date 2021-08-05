@@ -120,7 +120,7 @@ open class Fab: NSObject {
     /// The type of the button.
     public let kind: Kind
     /// The button, regardless of kind.
-    private let button: NSView
+    public let button: NSView
 
     /// Returns the `VisualEffectButton`.
     ///
@@ -140,8 +140,11 @@ open class Fab: NSObject {
         }
     }
 
-    /// View that will hold the placement of the button's actions.
     fileprivate var contentView: ColoredView!
+    /// View that will hold the placement of the button's actions.
+    public var actionContainer: NSView {
+        return contentView
+    }
 
     /// View where the *floatButton* will be displayed.
     open weak var parentView: NSView!
