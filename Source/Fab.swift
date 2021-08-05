@@ -481,9 +481,7 @@ extension Fab: NSGestureRecognizerDelegate {
     @objc
     open func gestureRecognizer(_ gestureRecognizer: NSGestureRecognizer,
                                 shouldAttemptToRecognizeWith event: NSEvent) -> Bool {
-        var point = contentView.convert(event.locationInWindow, from: nil)
-        // contentView is flipped.
-        point.y = contentView.frame.height - point.y
+        let point = contentView.superview!.convert(event.locationInWindow, from: nil)
         // Ignore if hit view is a button.
         return !(contentView.hitTest(point) is NSButton)
     }
