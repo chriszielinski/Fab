@@ -30,7 +30,7 @@
 
 import Cocoa
 
-open class CircularButton: ColoredButton, CursorTrackable {
+final public class CircularButton: ColoredButton, CursorTrackable {
 
     public let diameter: CGFloat
     public var allowsMouseDownInBounds: Bool = true
@@ -38,7 +38,7 @@ open class CircularButton: ColoredButton, CursorTrackable {
 
     // MARK: - Cursor Trackable
 
-    public var cursorTrackingHandler: ((Bool) -> Void)?
+    public var cursorTrackingHandler: ((CircularButton, Bool) -> Void)?
     internal var trackingAreaTag: NSView.TrackingRectTag?
 
     public var cornerRadius: CGFloat {
@@ -69,7 +69,7 @@ open class CircularButton: ColoredButton, CursorTrackable {
         return euclideanDistance <= radius
     }
 
-    override open func hitTest(_ point: NSPoint) -> NSView? {
+    override public func hitTest(_ point: NSPoint) -> NSView? {
         guard !ignoresMouseEvents
             else { return nil }
 
@@ -79,23 +79,23 @@ open class CircularButton: ColoredButton, CursorTrackable {
         return circularButtonContains(point: superview!.convert(point, to: self)) ? self : nil
     }
 
-    override open func updateTrackingAreas() {
+    override public func updateTrackingAreas() {
         updateCursorTrackingArea()
     }
 
-    override open func mouseEntered(with event: NSEvent) {
+    override public func mouseEntered(with event: NSEvent) {
         guard !ignoresMouseEvents
             else { return }
 
         super.mouseEntered(with: event)
-        cursorTrackingHandler?(true)
+        cursorTrackingHandler?(self, true)
     }
 
-    override open func mouseExited(with event: NSEvent) {
+    override public func mouseExited(with event: NSEvent) {
         guard !ignoresMouseEvents
             else { return }
 
         super.mouseExited(with: event)
-        cursorTrackingHandler?(false)
+        cursorTrackingHandler?(self, false)
     }
 }

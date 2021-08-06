@@ -30,7 +30,7 @@
 
 import Cocoa
 
-class ColoredView: FlippableView, CursorTrackable {
+final class ColoredView: FlippableView, CursorTrackable {
 
     var ignoresMouseEvents: Bool = false {
         didSet { gestureRecognizers.setEnabled(to: !ignoresMouseEvents) }
@@ -39,7 +39,7 @@ class ColoredView: FlippableView, CursorTrackable {
 
     // MARK: - Cursor Trackable
 
-    var cursorTrackingHandler: ((Bool) -> Void)?
+    var cursorTrackingHandler: ((ColoredView, Bool) -> Void)?
     var trackingAreaTag: NSView.TrackingRectTag?
 
     var cornerRadius: CGFloat {
@@ -77,7 +77,7 @@ class ColoredView: FlippableView, CursorTrackable {
             else { return }
 
         super.mouseEntered(with: event)
-        cursorTrackingHandler?(true)
+        cursorTrackingHandler?(self, true)
     }
 
     override func mouseExited(with event: NSEvent) {
@@ -85,6 +85,6 @@ class ColoredView: FlippableView, CursorTrackable {
             else { return }
 
         super.mouseExited(with: event)
-        cursorTrackingHandler?(false)
+        cursorTrackingHandler?(self, false)
     }
 }

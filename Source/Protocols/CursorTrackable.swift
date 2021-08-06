@@ -34,7 +34,7 @@ protocol CursorTrackable: class {
     /// A handler that is called whenever the cursor has interacted with the tracking rectangle.
     ///
     /// Passes in `true` when the cursor entered the tracking rectangle, and `false` when exited.
-    var cursorTrackingHandler: ((Bool) -> Void)? { get }
+    var cursorTrackingHandler: ((Self, Bool) -> Void)? { get }
     var trackingAreaTag: NSView.TrackingRectTag? { get set }
 
     func updateCursorTrackingArea()

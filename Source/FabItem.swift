@@ -127,11 +127,6 @@ open class FabItem: NSObject {
     }
 
     open func createButton(label optionalTitle: String?, image: NSImage?, buttonIcon: NSAttributedString?) {
-        let cursorTrackingHandler: ((Bool) -> Void) = { [unowned self] didCursorEnter in
-            // The second value is the multiplicative inverse of the first.
-            self.view.animateScaling(to: didCursorEnter ? self.buttonMouseOverScale : 1 / self.buttonMouseOverScale)
-        }
-
         view = ColoredView(frame: CGRect(origin: .zero, size: FabItem.viewSize),
                            backgroundColor: .clear,
                            shouldFlip: true)
@@ -145,7 +140,12 @@ open class FabItem: NSObject {
         button.isBordered = false
         button.target = self
         button.action = #selector(itemClicked(_:))
-        button.cursorTrackingHandler = cursorTrackingHandler
+        button.cursorTrackingHandler = { [weak self] (button, didCursorEnter) in
+            let scale = self?.buttonMouseOverScale ?? 1
+
+            // The second value is the multiplicative inverse of the first.
+            button.superview?.animateScaling(to: didCursorEnter ? scale : 1 / scale)
+        }
 
         if let image = image {
             button.imagePosition = .imageOnly
@@ -166,7 +166,12 @@ open class FabItem: NSObject {
                                           backgroundColor: .controlColor,
                                           shouldFlip: true)
             labelBackground.cornerRadius = 3
-            labelBackground.cursorTrackingHandler = cursorTrackingHandler
+            labelBackground.cursorTrackingHandler = { [weak self] (view, didCursorEnter) in
+                let scale = self?.buttonMouseOverScale ?? 1
+
+                // The second value is the multiplicative inverse of the first.
+                view.superview?.animateScaling(to: didCursorEnter ? scale : 1 / scale)
+            }
 
             let clickGestureRecognizer = NSClickGestureRecognizer(target: self,
                                                                   action: #selector(itemClicked(_:)))

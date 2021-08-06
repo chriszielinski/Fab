@@ -148,8 +148,9 @@ open class Fab: NSObject {
     }
 
     fileprivate var contentView: ColoredView!
+
     /// View that will hold the placement of the button's actions.
-    public var actionContainer: NSView {
+    public var itemContainerView: NSView {
         return contentView
     }
 
@@ -184,9 +185,12 @@ open class Fab: NSObject {
 
         super.init()
 
-        floatButton.cursorTrackingHandler = { [unowned self] didCursorEnter in
+        floatButton.cursorTrackingHandler = { [weak self] (button, didCursorEnter) in
+            guard let self = self, let viewToAnimate = self.kind == .colored ? button : button.superview
+            else { return }
+
             // The second value is the multiplicative inverse of the first.
-            self.button.animateScaling(to: didCursorEnter ? self.mouseOverScale : 1 / self.mouseOverScale)
+            viewToAnimate.animateScaling(to: didCursorEnter ? self.mouseOverScale : 1 / self.mouseOverScale)
         }
         floatButton.allowsMouseDownInBounds = false
         floatButton.setButtonType(.pushOnPushOff)
