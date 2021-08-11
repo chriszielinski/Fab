@@ -31,9 +31,14 @@
 import Cocoa
 
 open class ColoredButton: NSButton {
+
     public var backgroundColor: NSColor?
 
-    override open var wantsUpdateLayer: Bool {
+    open override var allowsVibrancy: Bool {
+        return false
+    }
+
+    open override var wantsUpdateLayer: Bool {
         return true
     }
 

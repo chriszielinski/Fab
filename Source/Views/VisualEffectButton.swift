@@ -34,6 +34,10 @@ open class VisualEffectButton: NSVisualEffectView {
 
     var button: CircularButton
 
+    open override var allowsVibrancy: Bool {
+        return false
+    }
+
     public init(diameter: CGFloat) {
         button = CircularButton(diameter: diameter, backgroundColor: nil)
         button.shadow = nil
