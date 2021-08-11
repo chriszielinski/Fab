@@ -156,7 +156,7 @@ open class FabItem: NSObject {
         }
 
         if let text = optionalTitle, text.trimmingCharacters(in: .whitespaces).isEmpty == false {
-            label = NSTextField(labelWithString: text)
+            label = NonVibrantTextField(labelWithString: text)
             label.font = NSFont.controlContentFont(ofSize: 13)
             label.alignment = .right
 

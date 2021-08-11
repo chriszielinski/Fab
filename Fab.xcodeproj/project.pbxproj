@@ -24,6 +24,7 @@
 		14B252C521657C760081DB70 /* FlippableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B252C421657C760081DB70 /* FlippableView.swift */; };
 		14B252C721657CD20081DB70 /* ColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B252C621657CD20081DB70 /* ColoredView.swift */; };
 		14B252C921657D2A0081DB70 /* ColoredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B252C821657D2A0081DB70 /* ColoredButton.swift */; };
+		14C3272226C464C000931F2B /* NonVibrantTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3272126C464BF00931F2B /* NonVibrantTextField.swift */; };
 		14E3656B2166C83800D72855 /* CursorTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E3656A2166C83800D72855 /* CursorTrackable.swift */; };
 		14E3656D2166E22000D72855 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E3656C2166E22000D72855 /* NotificationCenter.swift */; };
 		14F448CA216659180077F6D2 /* VisualEffectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F448C8216659150077F6D2 /* VisualEffectButton.swift */; };
@@ -73,6 +74,7 @@
 		14B252C421657C760081DB70 /* FlippableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippableView.swift; sourceTree = "<group>"; };
 		14B252C621657CD20081DB70 /* ColoredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredView.swift; sourceTree = "<group>"; };
 		14B252C821657D2A0081DB70 /* ColoredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredButton.swift; sourceTree = "<group>"; };
+		14C3272126C464BF00931F2B /* NonVibrantTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonVibrantTextField.swift; sourceTree = "<group>"; };
 		14E3656A2166C83800D72855 /* CursorTrackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorTrackable.swift; sourceTree = "<group>"; };
 		14E3656C2166E22000D72855 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		14F448C8216659150077F6D2 /* VisualEffectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectButton.swift; sourceTree = "<group>"; };
@@ -134,11 +136,12 @@
 		14B252C321657C640081DB70 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				14B252C421657C760081DB70 /* FlippableView.swift */,
-				14B252C621657CD20081DB70 /* ColoredView.swift */,
-				14B252C821657D2A0081DB70 /* ColoredButton.swift */,
-				14F448C8216659150077F6D2 /* VisualEffectButton.swift */,
 				146323C22166A8330010045B /* CircularButton.swift */,
+				14B252C821657D2A0081DB70 /* ColoredButton.swift */,
+				14B252C621657CD20081DB70 /* ColoredView.swift */,
+				14B252C421657C760081DB70 /* FlippableView.swift */,
+				14C3272126C464BF00931F2B /* NonVibrantTextField.swift */,
+				14F448C8216659150077F6D2 /* VisualEffectButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				141E3CD9216BCFE000D6EF53 /* NSButton.swift in Sources */,
 				14B252C921657D2A0081DB70 /* ColoredButton.swift in Sources */,
 				14B252BD216576FD0081DB70 /* Fab.swift in Sources */,
+				14C3272226C464C000931F2B /* NonVibrantTextField.swift in Sources */,
 				14B252C221657C2E0081DB70 /* NSView.swift in Sources */,
 				14B252BE216576FD0081DB70 /* FabItem.swift in Sources */,
 				14E3656B2166C83800D72855 /* CursorTrackable.swift in Sources */,
