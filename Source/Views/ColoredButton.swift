@@ -33,10 +33,15 @@ import Cocoa
 open class ColoredButton: NSButton {
 
     public var backgroundColor: NSColor?
+    @available(macOS, obsoleted: 11.0)
     public var wantsVibrancy: Bool = true
 
     open override var allowsVibrancy: Bool {
-        return wantsVibrancy
+        if #available(macOSApplicationExtension 11.0, *) {
+            return super.allowsVibrancy
+        } else {
+            return wantsVibrancy
+        }
     }
 
     open override var wantsUpdateLayer: Bool {
@@ -55,7 +60,8 @@ open class ColoredButton: NSButton {
     }
 
     open override func addSubview(_ view: NSView) {
-        if !wantsVibrancy, let textField = view as? NSTextField {
+        if #available(macOSApplicationExtension 11.0, *) {
+        } else if !wantsVibrancy, let textField = view as? NSTextField {
             /// This monster is necessary to get non-vibrancy in a borderless button... really?
             let newTextField = NonVibrantTextField(labelWithString: textField.stringValue)
 
@@ -64,9 +70,11 @@ open class ColoredButton: NSButton {
             newTextField.cell = textField.cell
 
             super.addSubview(newTextField)
-        } else {
-            super.addSubview(view)
+
+            return
         }
+
+        super.addSubview(view)
     }
 
     override open func updateLayer() {
