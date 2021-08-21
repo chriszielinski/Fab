@@ -60,12 +60,16 @@ extension NSView {
     }
 
     func animateScaling(to scale: CGFloat) {
+        guard let layer = layer
+        else { return }
+
         setAnchorPointToCenter()
 
         NSAnimationContext.runAnimationGroup { (context) in
             context.duration = 0.2
             context.allowsImplicitAnimation = true
-            self.layer!.setAffineTransform(layer!.affineTransform().scaledBy(x: scale, y: scale))
+
+            layer.setAffineTransform(scale == 1 ? .identity : layer.affineTransform().scaledBy(x: scale, y: scale))
         }
     }
 }

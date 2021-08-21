@@ -319,7 +319,6 @@ open class Fab: NSObject {
 
     @objc
     open func buttonClicked(_ sender: NSControl) {
-        button.animateScaling(to: 1)
         action(self)
     }
 
